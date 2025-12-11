@@ -1,0 +1,14 @@
+{
+  "year": 2025,
+  "dates": {
+    "day1": "2025-12-14",
+    "day2": "2025-12-15",
+    "day3": "2025-12-16",
+    "day4": "2025-12-17",
+    "day5": "2025-12-18",
+    "day6": "2025-12-19",
+    "day7": "2025-12-20",
+    "day8": "2025-12-21"
+  },
+  "note": "Update this file annually with the correct Hanukkah dates for the year. Dates should be in YYYY-MM-DD format."
+}

@@ -1,0 +1,470 @@
+/* ===== CSS Reset & Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0a1128;
+    background-image: var(--bg-image, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== Container ===== */
+.container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+/* ===== Header ===== */
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.header-icon {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #f4d03f;
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+}
+
+header h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(244, 208, 63, 0.5);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #a8d5ff;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+/* ===== Blessings Section ===== */
+.blessings {
+    margin: 1rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    max-width: 800px;
+    text-align: right;
+}
+
+.blessings p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===== Video Control Button ===== */
+#videoControl {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#videoControl:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+#slowMotionBtn {
+    position: fixed;
+    top: 20px;
+    right: 70px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#slowMotionBtn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+#slowMotionBtn.active {
+    background-color: #4a90e2;
+    transform: scale(1.1);
+}
+
+/* ===== UI Hidden State ===== */
+.ui-hidden .info-panel,
+.ui-hidden footer {
+    display: none;
+}
+/* Keep header (title and blessings) visible even when UI is hidden */
+.ui-hidden header {
+    display: block;
+}
+
+/* ===== Background Video ===== */
+#backgroundVideo {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body.video-background {
+    background-image: none !important;
+}
+
+/* ===== Info Panel ===== */
+.info-panel {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #1a2456;
+    border-radius: 15px;
+    border: 2px solid #4a90e2;
+    max-width: 600px;
+}
+
+.day-counter {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: bold;
+    color: #f4d03f;
+    margin-bottom: 0.5rem;
+}
+
+#dayNumber {
+    display: inline-block;
+    min-width: 1.5ch;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.instruction {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: #a8d5ff;
+    opacity: 0.8;
+}
+
+/* ===== Menorah Container ===== */
+.menorah-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: clamp(10px, 2vw, 20px);
+    margin: 3rem auto;
+    padding: 2rem 0;
+    position: relative;
+    overflow: visible;
+}
+
+/* ===== Menorah Base ===== */
+.menorah-base {
+    width: 90%;
+    max-width: 700px;
+    height: 12px;
+    background: linear-gradient(180deg, #c9a961 0%, #8b7355 100%);
+    margin: -1rem auto 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+}
+
+/* ===== Candle Styling ===== */
+.candle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.candle:hover {
+    transform: translateY(-5px);
+}
+
+/* Shamash is taller */
+.candle.shamash .wax {
+    height: clamp(100px, 15vw, 150px);
+}
+
+/* Reposition Shamash for an asymmetrical look */
+.candle.shamash {
+    position: absolute;
+    right: -80px; /* Position it to the right of the main 8 candles */
+    bottom: 60px; /* Elevate it above the others */
+    transform-origin: center center;
+}
+
+/* Shamash cursor states */
+.candle.shamash.lit {
+    cursor: grab;
+}
+
+.candle.shamash.dragging {
+    cursor: grabbing;
+    position: fixed;
+    z-index: 1000;
+    transition: none;
+    user-select: none;
+    -webkit-user-select: none;
+    transform-origin: center center;
+}
+
+/* Regular candles - not clickable */
+.candle:not(.shamash) {
+    cursor: default;
+}
+
+/* Proximity feedback */
+.candle.ready-to-light .wick {
+    animation: wickGlow 0.3s ease-in-out infinite;
+    background: #ff8c00;
+}
+
+@keyframes wickGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(255, 140, 0, 0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+    }
+}
+
+/* Wick */
+.wick {
+    width: 3px;
+    height: 15px;
+    background: #2c2c2c;
+    border-radius: 2px;
+    margin-bottom: -5px;
+    z-index: 1;
+}
+
+/* Wax (candle body) */
+.wax {
+    width: clamp(25px, 4vw, 35px);
+    height: clamp(80px, 12vw, 100px);
+    background: linear-gradient(180deg, #e8f4f8 0%, #b8d4e6 100%);
+    border-radius: 5px 5px 0 0;
+    box-shadow: inset 0 -5px 15px rgba(74, 144, 226, 0.2);
+    position: relative;
+}
+
+/* Candleholder */
+.holder {
+    width: clamp(35px, 5vw, 45px);
+    height: clamp(15px, 2vw, 18px);
+    background: linear-gradient(180deg, #f4d03f 0%, #c9a961 100%);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 8px rgba(244, 208, 63, 0.3);
+}
+
+/* ===== Flame Styling ===== */
+.flame {
+    width: clamp(20px, 3vw, 25px);
+    height: clamp(30px, 4.5vw, 40px);
+    background: radial-gradient(ellipse at center, #fff9e6 0%, #ffd700 30%, #ff8c00 70%, transparent 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(1px);
+}
+
+.flame::before,
+.flame::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 20%;
+    animation: flicker 0.2s ease-in-out infinite;
+}
+
+.flame::before {
+    background: radial-gradient(ellipse at center, #fff9e6 0%, #ffd700 50%, transparent 100%);
+    filter: blur(3px);
+}
+
+.flame::after {
+    background: radial-gradient(ellipse at center, transparent 30%, #ff8c00 60%, transparent 100%);
+    filter: blur(8px);
+    opacity: 0.6;
+    animation-direction: reverse;
+}
+
+/* Show flame when candle is lit */
+.candle.lit .flame {
+    opacity: 1;
+    animation: flameMove 0.15s ease-in-out infinite;
+}
+
+.candle.lit {
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+}
+
+/* ===== Flame Animations ===== */
+@keyframes flicker {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.03) translateY(-2px);
+    }
+
+    100% {
+        transform: scale(0.97) translateY(0);
+    }
+}
+
+@keyframes flameMove {
+
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(0.98) skewX(1.5deg);
+    }
+}
+
+/* ===== Controls ===== */
+.controls {
+    margin: 2rem 0;
+}
+
+.reset-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0a1128;
+    background: #f4d03f;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(244, 208, 63, 0.2);
+}
+
+.reset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(244, 208, 63, 0.4);
+    background: #ffd700;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #a8d5ff;
+    font-size: 1rem;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .menorah-container {
+        gap: clamp(8px, 1.5vw, 15px);
+        padding: 1rem 0;
+    }
+
+    .info-panel {
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        gap: 10px;
+    }
+
+    .menorah-container {
+        gap: 5px;
+    }
+
+    .wax {
+        width: 20px;
+        height: 60px;
+    }
+
+    .candle.shamash .wax {
+        height: 80px;
+    }
+
+    .holder {
+        width: 28px;
+        height: 12px;
+    }
+
+    .flame {
+        width: 18px;
+        height: 28px;
+        top: -25px;
+    }
+}
+
+/* ===== Creator Credit ===== */
+.creator-credit {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.5);
+    z-index: 1002;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}

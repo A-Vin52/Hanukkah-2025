@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interactive Hanukkah Menorah - Light the candles and celebrate the Festival of Lights with beautiful CSS animations">
+    <meta name="keywords" content="Hanukkah, Menorah, Hanukkiah, Festival of Lights, Interactive">
+    <title>🕎 Hanukkah Menorah - Festival of Lights</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button id="videoControl" class="video-control-btn" title="Pause/Play Video" style="display: none;">⏸️</button>
+    <button id="slowMotionBtn" title="Slow Motion" style="display: none;">🐌</button>
+
+    <div class="container ui-hidden">
+        <header>
+            <h1>חג חנוכה שמח</h1>
+            <p class="subtitle">ברכות ליום חנוכה</p>
+        </header>
+
+        <div class="blessings" dir="rtl">
+            <p id="blessing1">בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם,<br>אֲשֶׁר קִדְּשָׁנוּ בְּמִצְוֹתָיו וְצִוָּנוּ לְהַדְלִיק נֵר חֲנוּכָּה.</p>
+            <p id="blessing2">בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם,<br>שֶׁעָשָׂה נִסִּים לַאֲבוֹתֵינוּ בַּיָּמִים הָהֵם בַּזְּמַן הַזֶּה.</p>
+            <p id="blessing3">בָּרוּךְ אַתָּה ה׳ אֱלֹהֵינוּ מֶלֶךְ הָעוֹלָם,<br>שֶׁהֶחֱיָנוּ וְקִיְּמָנוּ וְהִגִּיעָנוּ לַזְּמַן הַזֶּה.</p>
+        </div>
+
+        <p id="notHanukkahMessage" style="display: none; color: #ff0000; font-size: 1.2rem; margin-top: 2rem; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Application will work only during days of Hanukkah 14 Dec - 21 Dec 2025</p>
+
+        <div class="info-panel">
+            <p class="day-counter">Day of Hanukkah: <span id="dayNumber">0</span></p>
+            <p class="instruction">Click the Shamash (center candle) to light it, then drag it to light other candles
+            </p>
+            <!-- Test selector - REMOVE FOR PRODUCTION -->
+            <div class="test-controls" style="margin-top: 1rem; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                <label for="testDaySelect" style="color: #a8d5ff; font-size: 0.9rem;">Test Day:</label>
+                <select id="testDaySelect" style="margin-left: 0.5rem; padding: 0.2rem; background: #1a2456; color: #fff; border: 1px solid #4a90e2; border-radius: 3px;">
+                    <option value="">Auto (Current Date)</option>
+                    <option value="1">Day 1</option>
+                    <option value="2">Day 2</option>
+                    <option value="3">Day 3</option>
+                    <option value="4">Day 4</option>
+                    <option value="5">Day 5</option>
+                    <option value="6">Day 6</option>
+                    <option value="7">Day 7</option>
+                    <option value="8">Day 8</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="menorah-container">
+            <!-- Candles 1-4 (left side) -->
+            <div class="candle" data-candle="candle1">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle2">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle3">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle4">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+
+            <!-- Shamash (helper candle - positioned in the center) -->
+            <div class="candle shamash" data-candle="shamash">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+
+            <!-- Candles 5-8 (right side) -->
+            <div class="candle" data-candle="candle5">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle6">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle7">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+            <div class="candle" data-candle="candle8">
+                <div class="flame"></div>
+                <div class="wick"></div>
+                <div class="wax"></div>
+                <div class="holder"></div>
+            </div>
+
+        </div>
+
+        <div class="menorah-base"></div>
+
+        <div class="controls">
+            <button id="resetBtn" class="reset-button">Reset Menorah</button>
+        </div>
+
+        <footer>
+            <p>Happy Hanukkah! 🕎 חג חנוכה שמח</p>
+        </footer>
+    </div>
+
+    <!-- Background video element -->
+    <video id="backgroundVideo" autoplay muted loop playsinline style="display: none;"></video>
+
+    <!-- Background audio element -->
+    <audio id="backgroundAudio" loop style="display: none;"></audio>
+
+    <div class="creator-credit">Created by Anatoly Vinokurov on Hanukkah 2025</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

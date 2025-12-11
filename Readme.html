@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanukkah Guide – Multilanguage</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #003366;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 10px;
+        }
+        .lang-switch {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .lang-switch button {
+            padding: 10px 18px;
+            margin: 0 5px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #e6f0ff;
+        }
+        .lang-switch button.active {
+            background: #003366;
+            color: white;
+            border-color: #003366;
+        }
+        [lang-block] { display: none; }
+    </style>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll("[lang-block]").forEach(el => el.style.display = "none");
+            document.getElementById(lang).style.display = "block";
+
+            document.querySelectorAll(".lang-switch button").forEach(btn => btn.classList.remove("active"));
+            document.getElementById("btn-" + lang).classList.add("active");
+
+            document.body.dir = (lang === "he") ? "rtl" : "ltr";
+        }
+
+        window.onload = function() {
+            switchLang("en");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- LANGUAGE SWITCH -->
+        <div class="lang-switch">
+            <button id="btn-en" onclick="switchLang('en')">English</button>
+            <button id="btn-ru" onclick="switchLang('ru')">Русский</button>
+            <button id="btn-he" onclick="switchLang('he')">עברית</button>
+        </div>
+
+        <!-- ENGLISH VERSION -->
+        <div id="en" lang-block>
+            <h1>Happy Hanukkah</h1>
+            <h2>User Guide</h2>
+
+            <p><strong>Important:</strong><br>
+            This application works <strong>only during the days of Hanukkah — December 14–21, 2025</strong>.</p>
+
+            <h3>How to Use the App</h3>
+            <ol>
+                <li><strong>Read the blessings</strong> displayed on the screen.</li>
+                <li><strong>Click the Shamash candle</strong> to light it.</li>
+                <li>After a few seconds, the lit Shamash will <strong>tilt automatically</strong>.</li>
+                <li><strong>Click and drag the tilted Shamash</strong> toward the candles to light them.</li>
+                <li><strong>Release the Shamash</strong> — it will return to its place automatically.</li>
+                <li>After lighting the candles, <strong>wait for your surprise</strong> — each day reveals a <strong>new surprise</strong>.</li>
+            </ol>
+
+            <p><strong>P.S.</strong> If you make a mistake, click “Reset Menorah”, confirm OK, and repeat the lighting.</p>
+        </div>
+
+        <!-- RUSSIAN VERSION -->
+        <div id="ru" lang-block>
+    <h1>Хаг Ханука Самеах</h1>
+    <h2>Руководство пользователя</h2>
+
+    <p><strong>Важно:</strong><br>
+    Это приложение работает <strong>только в дни Хануки — с 14 по 21 декабря 2025 года</strong>.</p>
+
+    <h3>Как пользоваться приложением</h3>
+    <ol>
+        <li><strong>Прочитайте благословения</strong> на экране.</li>
+        <li><strong>Нажмите на Шамаш</strong>, чтобы зажечь его.</li>
+        <li>Через несколько секунд Шамаш <strong>наклонится автоматически</strong>.</li>
+        <li><strong>Перетащите наклонённый Шамаш</strong> к свечам, чтобы зажечь их.</li>
+        <li><strong>Отпустите Шамаш</strong> — он вернётся на место автоматически.</li>
+        <li>После зажигания свечей <strong>подождите сюрприз</strong> — каждый день будет <strong>новый сюрприз</strong>.</li>
+    </ol>
+
+    <p><strong>P.S.</strong> Если допустили ошибку, нажмите «Reset Menorah», подтвердите OK и повторите процесс.</p>
+</div>
+
+
+        <!-- HEBREW VERSION -->
+        <div id="he" lang-block>
+            <h1>חג חנוכה שמח</h1>
+            <h2>מדריך למשתמש</h2>
+
+            <p><strong>חשוב:</strong><br>
+            האפליקציה פועלת <strong>רק במהלך ימי החנוכה — 14–21 בדצמבר 2025</strong>.</p>
+
+            <h3>איך להשתמש באפליקציה</h3>
+            <ol>
+                <li><strong>קראו את הברכות</strong> שמופיעות על המסך.</li>
+                <li><strong>לחצו על השמש</strong> כדי להדליק אותו.</li>
+                <li>לאחר כמה שניות השמש הדולק <strong>ייטה אוטומטית</strong>.</li>
+                <li><strong>גררו את השמש המוטה</strong> אל הנרות כדי להדליק אותם.</li>
+                <li><strong>שחררו את השמש</strong> — והוא יחזור למקומו מעצמו.</li>
+                <li>לאחר ההדלקה <strong>המתינו להפתעה</strong> — כל יום נפתחת <strong>הפתעה חדשה</strong>.</li>
+            </ol>
+
+            <p><strong>נ.ב.</strong> אם עשיתם טעות, לחצו על “Reset Menorah”, אשרו OK ונסו שוב.</p>
+        </div>
+
+    </div>
+</body>
+</html>
